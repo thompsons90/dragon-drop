@@ -22,10 +22,11 @@ export const Board= (props) => {
         e.preventDefault()
     }
 
+    // set props to pass through events
     return(
-<>
+<div id={props.id} className={props.className} onDrop={drop} onDragOver={dragOver} >
 { props.children }
-</>
+</div>
     )
 }
 

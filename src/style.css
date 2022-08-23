@@ -1,13 +1,82 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-image: url("../public/images/dragon.webp");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-color: red;
+  text-align: center;
+}
+
+/* video calls it drag-n-drop */
+.dragon-drop {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(auto-fill, 300px);
+  padding: .3rem;
+  gap: .5rem;
+}
+
+.group-title {
+  color: white;
+  text-shadow: 1px 1px 2px cadetblue;
+  margin-bottom: .5rem;
+  font-size: 1.5rem;
+}
+.dnd-group {
+  background-color:gold;
+  border-radius: 5px;
+  padding: .3rem;
+}
+
+.dnd-item {
+  background-color: white;
+  border: 2px solid gold;
+  border-radius: 5px;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.dnd-item:not(:last-of-type) {
+  margin-bottom: .5rem;
+}
+
+.current{
+  background-color: gold;
+}
+
+/* --------------first attempt section--------------- */
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  max-width: 750px;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.flexbox .board {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  background-color: darkgreen;
+  padding: 15px;
+}
+
+.flexbox .board .card {
+  padding: 15px 25px;
+  background-color: #F3F3F3;
+  cursor: pointer;
+  margin-bottom: 15px;
 }
