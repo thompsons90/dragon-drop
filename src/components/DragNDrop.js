@@ -15,11 +15,22 @@ function DragNDrop({data}) {
         dragNode.current.addEventListener('dragend', handleDragEnd);
         setTimeout(() => {
             setDragging(true);
+
         }, 0)
     }
 
-    const handleDragEnter = (e) => {
-        console.log('Enter the Dragon')
+    const handleDragEnter = (e, params) => {
+        console.log('Enter the Dragon', params)
+        const currentItem = dragItem.current;
+        if(e.target !== dragNode.current) {
+            console.log('target is not same')
+            setList(oldList => {
+                let newList = JSON.parse(JSON.stringify(oldList));
+                newList[params.groupI].items.splice(params.itemI, 0, newList[currentItem.groupI].items.splice(currentItem.itemI,1)[0])
+                dragItem.current = params;
+                return newList;
+            })
+        }
     }
 
     const handleDragEnd = () => {
@@ -41,12 +52,16 @@ function DragNDrop({data}) {
     return (
         <div className="dragon-drop">
       {list.map((group, groupI) => (
-        <div key={group.title}className="dnd-group">
+        <div 
+            key={group.title} 
+            className="dnd-group"
+            onDragEnter={dragging && !group.items.length?(e) => handleDragEnter(e, {groupI, itemI: 0}) : null}
+            >
           <div className="group-title">{group.title}</div>
           {group.items.map((item, itemI) => (
             <div draggable="true" 
             onDragStart={(e) => {handleDragStart(e, {groupI, itemI})}} 
-            onDragEnter={dragging? handleDragEnter : null}
+            onDragEnter={dragging?(e) => handleDragEnter(e, {groupI, itemI}) : null}
             key={item}className={dragging? getStyles({groupI, itemI}):"dnd-item"}>
               {item}
             </div>

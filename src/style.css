@@ -10,6 +10,14 @@ body {
   background-size: 100vw;
   background-color: red;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#header {
+  color: white;
+  text-shadow: 1px 1px 2px black;
 }
 
 /* video calls it drag-n-drop */
@@ -20,11 +28,12 @@ body {
   grid-template-columns: repeat(auto-fill, 300px);
   padding: .3rem;
   gap: .5rem;
+  justify-content: center;
 }
 
 .group-title {
   color: white;
-  text-shadow: 1px 1px 2px cadetblue;
+  text-shadow: 1px 1px 2px black;
   margin-bottom: .5rem;
   font-size: 1.5rem;
 }

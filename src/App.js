@@ -5,12 +5,14 @@ import DragNDrop from './components/DragNDrop';
 
 const data = [
   {title: 'Group 1', items: ['1','2','3']},
-  {title: 'Group 2', items: ['4','5','6']}
+  {title: 'Group 2', items: ['4','5','6']},
+  {title: 'Group 3', items: ['7','8','9']}
 ]
 
 function App() {
   return (
     <div className="App">
+      <h1 id="header">Dragon Drop</h1>
       <DragNDrop data={data}/>
 
             {/* <div className="dragon-drop">
